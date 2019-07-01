@@ -19,9 +19,10 @@ public class HamletParserTest {
 
     @Test
     public void testChangeHamletToLeon() {
-        hamletParser.changeHamletToLeon();
+        hamletParser.hamletDataToFile();
         Pattern p = Pattern.compile("(?i)Hamlet");
-        Matcher m = p.matcher("Leon.txt");
+        String leon = hamletParser.loadFile("Leon.txt");
+        Matcher m = p.matcher(leon);
         int count = 0;
         while(m.find()) count++;
         Assert.assertEquals(0, count);
@@ -29,17 +30,13 @@ public class HamletParserTest {
 
     @Test
     public void testChangeHoratioToTariq() {
-        hamletParser.changeHoratioToTariq();
+        hamletParser.hamletDataToFile();
         Pattern p = Pattern.compile("(?i)Horatio");
-        Matcher m = p.matcher("Leon.txt");
+        String leon = hamletParser.loadFile("Leon.txt");
+        Matcher m = p.matcher(leon);
         int count = 0;
         while(m.find()) count++;
         Assert.assertEquals(0, count);
     }
 
-    @Test
-    public void hamletDataToFile() {
-        hamletParser.hamletDataToFile();
-        Assert.assertNotNull("Leon.txt");
-    }
 }

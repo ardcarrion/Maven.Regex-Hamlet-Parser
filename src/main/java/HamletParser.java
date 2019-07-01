@@ -16,8 +16,12 @@ public class HamletParser {
     }
 
     private String loadFile(){
+        return loadFile("hamlet.txt");
+    }
+
+    protected String loadFile(String path){
         ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource("hamlet.txt").getFile());
+        File file = new File(classLoader.getResource(path).getFile());
         StringBuilder result = new StringBuilder("");
 
         try(Scanner scanner = new Scanner(file)){
@@ -39,15 +43,17 @@ public class HamletParser {
     }
 
     public void changeHamletToLeon() {
-        Pattern p = Pattern.compile("(?i)Hamlet");
+        Pattern p = Pattern.compile("(?)Hamlet");
         Matcher m = p.matcher(hamletData);
         hamletData = m.replaceAll("Leon");
         m.usePattern(Pattern.compile("(?i)HAMLET"));
         hamletData = m.replaceAll("LEON");
     }
     public void changeHoratioToTariq() {
-        Pattern p = Pattern.compile("HORATIO");
+        Pattern p = Pattern.compile("(?)Horatio");
         Matcher m = p.matcher(hamletData);
+        hamletData = m.replaceAll("Tariq");
+        m.usePattern(Pattern.compile("(?i)HORATIO"));
         hamletData = m.replaceAll("TARIQ");
     }
 
