@@ -15,6 +15,9 @@ public class HamletParserTest {
 
     @Test
     public void testChangeHamletToLeon() {
+        hamletParser.changeHamletToLeon();
+        hamletParser.changeHoratioToTariq();
+        hamletParser.hamletDataToFile();
     }
 
     @Test
