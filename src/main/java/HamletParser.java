@@ -1,3 +1,5 @@
+
+
 import java.io.*;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -46,15 +48,17 @@ public class HamletParser {
         Pattern p = Pattern.compile("(?)Hamlet");
         Matcher m = p.matcher(hamletData);
         hamletData = m.replaceAll("Leon");
-        m.usePattern(Pattern.compile("(?i)HAMLET"));
-        hamletData = m.replaceAll("LEON");
+        Pattern p2 = Pattern.compile("(?i)HAMLET");
+        Matcher m2 = p2.matcher(hamletData);
+        hamletData = m2.replaceAll("LEON");
     }
     public void changeHoratioToTariq() {
-        Pattern p = Pattern.compile("(?)Horatio");
+        Pattern p = Pattern.compile("Horatio");
         Matcher m = p.matcher(hamletData);
         hamletData = m.replaceAll("Tariq");
-        m.usePattern(Pattern.compile("(?i)HORATIO"));
-        hamletData = m.replaceAll("TARIQ");
+        Pattern p2 = Pattern.compile("(?i)HORATIO");
+        Matcher m2 = p2.matcher(hamletData);
+        hamletData = m2.replaceAll("TARIQ");
     }
 
     public void hamletDataToFile() {
