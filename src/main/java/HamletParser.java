@@ -52,6 +52,8 @@ public class HamletParser {
     }
 
     public void hamletDataToFile() {
+        changeHoratioToTariq();
+        changeHamletToLeon();
         PrintWriter writer = null;
         try {
             writer = new PrintWriter(new FileOutputStream("Leon.txt"));
@@ -63,5 +65,7 @@ public class HamletParser {
             if (writer != null) writer.close();
         }
     }
+
+
 
 }
